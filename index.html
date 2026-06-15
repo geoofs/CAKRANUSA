@@ -1779,10 +1779,6 @@
       }
     }
 
-    /* =========================
-       CAKRASWARA PREMIUM REVISI
-    ========================= */
-
     .cakraswara-page {
       position: relative;
       min-height: 100vh;
@@ -2525,13 +2521,6 @@
       }
     }
 
-
-    /* =========================================================
-       CAKRASWARA FINAL OVERRIDE - GOLD PREMIUM + OFFVIDEO PLAYER
-       Catatan: override ini diletakkan terakhir agar tidak kalah
-       oleh CSS Cakraswara versi sebelumnya.
-    ========================================================= */
-
     :root {
       --cakranusa-header-height: 54px;
     }
@@ -2928,13 +2917,6 @@
       }
     }
 
-
-
-    /* =========================================================
-       CAKRASWARA PLAYER FIT DESKTOP OVERRIDE - 1 LAYAR + PLAYLIST PREMIUM
-       Revisi: player dibuat lebih compact supaya tombol, progress bar,
-       judul, playlist, dan search tetap terlihat dalam satu layar desktop.
-    ========================================================= */
 
     @media (min-width: 769px) {
       body.swara-player-open {
@@ -3333,13 +3315,6 @@
       }
     }
 
-  
-    /* =========================
-       CAKRASWARA PLAYER RIGHT AREA FINAL
-       - Playlist design is intentionally untouched.
-       - Player card fills the remaining desktop space.
-    ========================= */
-
     @media (min-width: 769px) {
       .swara-room {
         width: 100% !important;
@@ -3467,15 +3442,7 @@
       }
     }
 
-  
-
-    /* =========================
-       CAKRASWARA PLAYER DESKTOP IMAGE + PLAYLIST THUMBNAIL FINAL
-       - Memperbesar foto utama agar proporsional dengan ruang kanan.
-       - Mengganti nomor 01/02/03 pada playlist menjadi foto thumbnail.
-       - Struktur playlist dipertahankan; hanya slot angka diganti visual gambar.
-    ========================= */
-
+ 
     @media (min-width: 769px) {
       .swara-room-card {
         grid-template-rows: auto auto auto auto auto !important;
@@ -3561,12 +3528,7 @@
     }
 
 
-    /* =========================
-       CAKRASWARA PLAYER DESKTOP SQUARE IMAGE FINAL
-       - Foto utama player desktop dibuat persegi.
-       - Jarak foto ke judul dibuat proporsional.
-       - Playlist tetap memakai desain terakhir, tidak diubah.
-    ========================= */
+
 
     @media (min-width: 769px) {
       .swara-room-card {
@@ -3648,13 +3610,6 @@
     }
 
 
-    /* =========================
-       CAKRASWARA PLAYER FINAL TWEAK
-       - Tombol stop/kotak dihapus dari markup.
-       - Foto player desktop dibuat sedikit lebih kecil.
-       - Tombol X dipindahkan ke dalam card player.
-    ========================= */
-
     .swara-room-card {
       position: relative !important;
     }
@@ -3716,10 +3671,6 @@
     }
 
 
-
-    /* =========================
-       CAKRALAND GDOC LANGUAGE NAV + SMART TEXT FORMAT
-    ========================= */
 
     .budaya-lang-nav {
       position: relative;
@@ -3837,10 +3788,6 @@
     }
 
 
-
-    /* =========================
-       CAKRALAND GDOC BINDER READER FINAL
-    ========================= */
 
     .budaya-view {
       padding-left: clamp(32px, 5vw, 82px) !important;
@@ -4063,11 +4010,7 @@
       }
     }
 
-  
-    /* =========================
-       CAKRALAND STORY GLASS CARD + PREMIUM BINDER TABS FINAL
-       Revisi: background teks cerita dibuat seperti card player transparan.
-    ========================= */
+
 
     .budaya-view {
       background:
@@ -4353,12 +4296,6 @@
     }
 
 
-
-    /* =========================
-       BERANDA SCROLL REVEAL + HOME CARD ROUTING
-       Animasi halus hanya untuk elemen di halaman Beranda.
-    ========================= */
-
     #homePage .home-reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -4423,14 +4360,6 @@
       }
     }
 
-
-
-    /* =========================
-       CAKRALAND MEDIA DETAIL + TEMPORARY FOCUS FIX
-       Revisi: highlight card bottom sheet hanya sementara,
-       media kategori budaya mendukung image/detail khusus,
-       audio alat musik berbasis YouTube tanpa menampilkan video.
-    ========================= */
 
     .budaya-card.budaya-card-highlight {
       animation: budayaCardFocusPulse 1.35s ease-in-out 1 !important;
@@ -4606,13 +4535,6 @@
     }
 
 
-  
-
-    /* =========================
-       CAKRALAND CLEAN MEDIA + VISIBLE TEMPORARY HIGHLIGHT FINAL
-       Revisi: media detail tanpa card/background, floating image bersih,
-       tombol play alat musik kecil di kiri bawah, highlight hanya saat baru dibuka.
-    ========================= */
 
     #sheetBody .budaya-card.budaya-card-highlight {
       border: 3px solid rgba(255, 245, 210, 0.98) !important;
@@ -4807,11 +4729,6 @@
     }
 
 
-    /* =========================
-       FIX FINAL: HIGHLIGHT CARD BOTTOM SHEET DARI BERANDA
-       Fokus: card target di bottom sheet harus terlihat jelas selama 3 detik.
-    ========================= */
-
     #sheetBody.home-shortcut-focus .budaya-card {
       opacity: 0.34 !important;
       filter: grayscale(0.45) brightness(0.55) blur(0.4px) !important;
@@ -4909,14 +4826,6 @@
         outline-offset: 4px !important;
       }
     }
-
-
-    /* =========================
-       FINAL TWEAK: SMOOTH HIGHLIGHT + ACTIVE HEADER STATE
-       - Hilangkan label CARD TERPILIH.
-       - Highlight bottom sheet fade-out lebih halus.
-       - Header diberi aksen berbeda hanya untuk menu yang sedang aktif.
-    ========================= */
 
     .nav-box a.nav-page-link {
       position: relative;
@@ -5045,13 +4954,6 @@
       }
     }
 
-
-
-    /* =========================
-       FINAL FIX: HEADER ACTIVE COLOR ONLY
-       Revisi: tanpa card/background, tanpa garis bawah, hanya beda warna saat menu aktif.
-    ========================= */
-
     .nav-box a.nav-page-link,
     .nav-box a.nav-page-link:hover,
     .nav-box a.nav-page-link.nav-page-active {
@@ -5114,12 +5016,6 @@
       }
     }
 
-
-
-    /* =========================
-       FINAL REVISION: HEADER ACTIVE SAME WHITE-GOLD ONLY
-       Revisi: menu aktif tidak warna-warni, tanpa card, tanpa underline.
-    ========================= */
 
     .nav-box a.nav-page-link,
     .nav-box a.nav-page-link:hover,
@@ -8088,7 +7984,31 @@
         gambar: 'RUMAH-TANEAN-LAJHANG.png',
         mediaGambar: 'RUMAH-TANEAN-LAJHANG-DETAIL.png',
         gdoc: '1yNyR0wvFG6WirhHxSzjLfsWRVWIRwlXO8Df447DmVNA'
-      }
+      },
+      {
+        nama: 'Prabu Pucuk Umun',
+        provinsi: 'Banten',
+        kategori: 'CERITA RAKYAT',
+        gambar: 'PRABU-PUCUK-UMUN.png',
+        gdoc: '5erO5kj7kY5QVGxEwvMrnZIq-Ljn56XBM2W7aAX0FJc',
+        youtube: 'jmgZNwvuU5c'
+      },
+      {
+        nama: 'Batu Kuwung',
+        provinsi: 'Banten',
+        kategori: 'CERITA RAKYAT',
+        gambar: 'BATU-KUWUNG.png',
+        gdoc: '11oiDju_qBzt9T_0aywhUI5lrADhf2MHmQH3Jp0R9RUo',
+        youtube: '_tRAOeaD8qM'
+      },
+      {
+        nama: 'Legenda Baduy',
+        provinsi: 'Banten',
+        kategori: 'CERITA RAKYAT',
+        gambar: 'BADUY.png',
+        gdoc: '1ukrMsdkCU-dY_eouMY99uyZQi2moacZY39wDgdNXbpQ',
+        youtube: 'y6P0cH58hII'
+      },
     ];
 
     const homeCultureShortcuts = {
@@ -9774,12 +9694,6 @@
       revealTargets.forEach(element => observer.observe(element));
     }
 
-    /* =========================
-       FIX FINAL: Beranda → Cakraland bottom sheet selected-card highlight
-       - Menjaga nama target agar tidak hilang saat showPage menutup sheet lama.
-       - Menambahkan dummy card target bila datanya belum ada, supaya highlight selalu punya card tujuan.
-       - Highlight aktif 3 detik hanya pada card bottom sheet yang cocok.
-    ========================= */
     (function() {
       const HOME_HIGHLIGHT_DURATION = 3000;
       const HOME_HIGHLIGHT_FADE_DURATION = 900;
