@@ -6671,6 +6671,345 @@
       }
     }
 
+
+
+    /* =========================================================
+       REVISI MOBILE FINAL: wallpaperphone, hero kecil,
+       tanpa gradasi emas beranda, slider cerita aktif,
+       bottom sheet rapi tanpa tumpang tindih.
+    ========================================================= */
+    @media (max-width: 768px) {
+      html,
+      body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        background-color: #08142b !important;
+      }
+
+      body::after {
+        content: "" !important;
+        display: block !important;
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+        background:
+          linear-gradient(rgba(5, 10, 25, 0.18), rgba(5, 10, 25, 0.28)),
+          url('wallpaperphone.png') center top / cover no-repeat #08142b !important;
+        transform: translateZ(0) !important;
+      }
+
+      body::before {
+        background: rgba(5, 10, 25, 0.22) !important;
+      }
+
+      .wrapper {
+        background-image: none !important;
+        background-color: transparent !important;
+        background-attachment: initial !important;
+        overflow-x: clip !important;
+      }
+
+      .fixed-gradient-layer,
+      .fixed-gradient-layer::before {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        background: none !important;
+      }
+
+      #homePage {
+        position: relative !important;
+        overflow-x: hidden !important;
+      }
+
+      #homePage .hero {
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+        max-height: 100dvh !important;
+        padding: calc(var(--cakranusa-header-height, 54px) + 34px) 18px 46px !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+        isolation: isolate !important;
+      }
+
+      #homePage .hero h1 {
+        font-size: clamp(2.35rem, 13.2vw, 3.25rem) !important;
+        letter-spacing: clamp(3px, 1.6vw, 6px) !important;
+        line-height: 1.08 !important;
+        margin-bottom: 12px !important;
+        text-shadow:
+          0 0 4px rgba(255, 215, 120, 0.28),
+          0 0 10px rgba(212, 175, 55, 0.20) !important;
+      }
+
+      #homePage .hero h1::before,
+      #homePage .hero h1::after {
+        font-size: 0.68rem !important;
+      }
+
+      #homePage .hero h1::before {
+        left: -16px !important;
+        bottom: 2px !important;
+      }
+
+      #homePage .hero h1::after {
+        right: -14px !important;
+        top: -10px !important;
+      }
+
+      #homePage .hero p {
+        max-width: 295px !important;
+        margin: 0 auto !important;
+        font-size: clamp(0.76rem, 3.4vw, 0.92rem) !important;
+        line-height: 1.55 !important;
+        letter-spacing: 0.8px !important;
+      }
+
+      .gold-section {
+        min-height: auto !important;
+        padding: 62px 6% 118px !important;
+        overflow: hidden !important;
+      }
+
+      .gold-content {
+        gap: 24px !important;
+      }
+
+      .gold-image img {
+        max-width: min(300px, 78vw) !important;
+      }
+
+      .gold-text h2 {
+        font-size: clamp(1.55rem, 8.4vw, 2.18rem) !important;
+        letter-spacing: 1.6px !important;
+        margin-bottom: 13px !important;
+      }
+
+      .gold-text p {
+        font-size: 0.82rem !important;
+        line-height: 1.72 !important;
+        margin-bottom: 20px !important;
+      }
+
+      .stats-boxes {
+        width: min(285px, 100%) !important;
+        margin: 0 auto 4px !important;
+        gap: 10px !important;
+        justify-content: center !important;
+      }
+
+      .stat-card {
+        flex: 1 1 128px !important;
+        min-width: 0 !important;
+        max-width: 136px !important;
+        padding: 13px 8px 14px !important;
+        border-radius: 17px !important;
+      }
+
+      .stat-number {
+        font-size: clamp(1.58rem, 8vw, 2.08rem) !important;
+        margin-bottom: 6px !important;
+      }
+
+      .stat-label {
+        font-size: 0.62rem !important;
+        letter-spacing: 0.75px !important;
+      }
+
+      .wave-container {
+        height: 94px !important;
+        bottom: -1px !important;
+      }
+
+      .wave-3 { bottom: 34px !important; height: 50px !important; }
+      .wave-4 { bottom: 17px !important; height: 60px !important; }
+      .wave-5 { bottom: 0 !important; height: 76px !important; }
+
+      .folklore-section {
+        overflow-x: hidden !important;
+      }
+
+      .folklore-slider,
+      .folklore-slider * {
+        touch-action: pan-y !important;
+      }
+
+      .folklore-slider {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-x: contain !important;
+        scroll-snap-type: x mandatory !important;
+        scroll-padding-left: 5vw !important;
+        padding: 10px 5vw 20px !important;
+      }
+
+      .folklore-slider.is-dragging {
+        scroll-snap-type: none !important;
+        cursor: grabbing !important;
+      }
+
+      .story-card {
+        flex: 0 0 min(64vw, 218px) !important;
+        width: min(64vw, 218px) !important;
+        min-width: min(64vw, 218px) !important;
+        max-width: min(64vw, 218px) !important;
+        height: 300px !important;
+        scroll-snap-align: start !important;
+        touch-action: pan-y !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -webkit-user-drag: none !important;
+      }
+
+      .story-card img,
+      .story-content {
+        pointer-events: none !important;
+      }
+
+      .story-scrollbar {
+        margin: 8px 0 8px !important;
+      }
+
+      .story-scroll-track {
+        width: min(240px, 68vw) !important;
+        max-width: min(240px, 68vw) !important;
+      }
+
+      #cultureSheet {
+        height: 72dvh !important;
+        max-height: 72dvh !important;
+        overflow: hidden !important;
+      }
+
+      .sheet-header {
+        flex: 0 0 auto !important;
+      }
+
+      .sheet-body {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        height: auto !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-auto-flow: row !important;
+        grid-auto-rows: auto !important;
+        align-items: start !important;
+        align-content: start !important;
+        gap: 11px !important;
+        padding: 12px 12px 18px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+
+      .budaya-card {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: clamp(176px, 54vw, 220px) !important;
+        min-height: 176px !important;
+        max-height: 220px !important;
+        aspect-ratio: auto !important;
+        margin: 0 !important;
+        border-radius: 15px !important;
+        overflow: hidden !important;
+        transform-origin: center !important;
+      }
+
+      .budaya-card img {
+        position: absolute !important;
+        inset: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+      }
+
+      .budaya-title {
+        left: 9px !important;
+        right: 9px !important;
+        bottom: 9px !important;
+        font-size: 0.66rem !important;
+        line-height: 1.22 !important;
+      }
+
+      .nav-links {
+        background: #08142b !important;
+        background-image: none !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+
+      .nav-links::before,
+      .nav-links::after,
+      .mobile-nav-backdrop::before,
+      .mobile-nav-backdrop::after {
+        display: none !important;
+        content: none !important;
+        background: none !important;
+      }
+
+      .mobile-nav-backdrop {
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+
+      .cakraswara-page {
+        background:
+          linear-gradient(180deg, rgba(8, 20, 43, 0.36), rgba(8, 20, 43, 0.72)),
+          url('wallpaperphone.png') center top / cover no-repeat fixed !important;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .story-card {
+        flex-basis: min(66vw, 206px) !important;
+        width: min(66vw, 206px) !important;
+        min-width: min(66vw, 206px) !important;
+        max-width: min(66vw, 206px) !important;
+        height: 292px !important;
+      }
+
+      .budaya-card {
+        height: clamp(168px, 52vw, 210px) !important;
+        min-height: 168px !important;
+        max-height: 210px !important;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .story-card {
+        flex-basis: 68vw !important;
+        width: 68vw !important;
+        min-width: 68vw !important;
+        max-width: 68vw !important;
+        height: 280px !important;
+      }
+
+      .sheet-body {
+        gap: 9px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+      }
+
+      .budaya-card {
+        height: clamp(158px, 51vw, 196px) !important;
+        min-height: 158px !important;
+        max-height: 196px !important;
+      }
+
+      .budaya-title {
+        font-size: 0.60rem !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -9727,6 +10066,7 @@
       },
     ];
 
+
     const homeCultureShortcuts = {
       sumatra: {
         label: 'Pulau Sumatra',
@@ -11952,6 +12292,101 @@
       initSheetTabs();
       initSheetDrag();
       initCakraswara();
+    });
+  </script>
+
+  <script>
+    /* Revisi final: swipe cerita rakyat mobile lebih kuat */
+    function initFolkloreMobileSwipeFix() {
+      const slider = document.getElementById('folkloreSlider');
+      if (!slider || slider.dataset.mobileSwipeReadyFinal === 'true') return;
+      slider.dataset.mobileSwipeReadyFinal = 'true';
+
+      const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+      let active = false;
+      let startX = 0;
+      let startY = 0;
+      let startScrollLeft = 0;
+      let moved = false;
+      let lockedHorizontal = false;
+
+      function beginDrag(x, y) {
+        if (!isMobile()) return;
+        active = true;
+        moved = false;
+        lockedHorizontal = false;
+        startX = x;
+        startY = y;
+        startScrollLeft = slider.scrollLeft;
+        slider.classList.add('is-dragging');
+      }
+
+      function moveDrag(x, y, event) {
+        if (!active || !isMobile()) return;
+
+        const dx = x - startX;
+        const dy = y - startY;
+
+        if (!lockedHorizontal && Math.abs(dx) > 7 && Math.abs(dx) > Math.abs(dy) * 1.1) {
+          lockedHorizontal = true;
+        }
+
+        if (!lockedHorizontal) return;
+
+        moved = true;
+        slider.scrollLeft = startScrollLeft - dx;
+
+        if (event && event.cancelable) {
+          event.preventDefault();
+        }
+      }
+
+      function endDrag() {
+        if (!active) return;
+        active = false;
+        lockedHorizontal = false;
+        slider.classList.remove('is-dragging');
+
+        if (moved) {
+          setTimeout(() => {
+            moved = false;
+          }, 160);
+        }
+      }
+
+      slider.addEventListener('touchstart', event => {
+        if (!event.touches || event.touches.length !== 1) return;
+        beginDrag(event.touches[0].clientX, event.touches[0].clientY);
+      }, { passive: true });
+
+      slider.addEventListener('touchmove', event => {
+        if (!event.touches || event.touches.length !== 1) return;
+        moveDrag(event.touches[0].clientX, event.touches[0].clientY, event);
+      }, { passive: false });
+
+      slider.addEventListener('touchend', endDrag, { passive: true });
+      slider.addEventListener('touchcancel', endDrag, { passive: true });
+
+      slider.addEventListener('mousedown', event => {
+        if (!isMobile()) return;
+        beginDrag(event.clientX, event.clientY);
+      });
+
+      window.addEventListener('mousemove', event => {
+        moveDrag(event.clientX, event.clientY, event);
+      });
+
+      window.addEventListener('mouseup', endDrag);
+
+      slider.addEventListener('click', event => {
+        if (!isMobile() || !moved) return;
+        event.preventDefault();
+        event.stopPropagation();
+      }, true);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initFolkloreMobileSwipeFix();
     });
   </script>
   <script src="https://www.youtube.com/iframe_api"></script>
