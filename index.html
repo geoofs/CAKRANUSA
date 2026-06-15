@@ -1,16 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAKRANUSA</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CAKRANUSA</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&amp;family=Poppins:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<style>
     * {
       margin: 0;
       padding: 0;
@@ -7011,372 +7010,346 @@
     }
 
   </style>
-</head>
+<style>
+@media (max-width: 768px){
+  .hero-title, .judul, .title, h1 {
+    font-size: 18px !important;
+    transform: scale(0.95);
+  }
+  .tagline {
+    font-size: 12px !important;
+  }
+  .animated-title {
+    font-size: 18px !important;
+  }
+}
 
+/* fix bottom sheet GDOC spacing */
+@media (max-width:768px){
+  .bottom-sheet .gdoc-content,
+  .sheet-content{
+    padding-top: 8px !important;
+    margin-top: 0 !important;
+  }
+}
+
+/* fix player mode scroll lock */
+body.player-active {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+/* audio category scroll indicator */
+.audio-scroll-indicator{
+  display:flex;
+  justify-content:center;
+  font-size:14px;
+  opacity:0.7;
+  animation: blink 1.2s infinite;
+}
+@keyframes blink{
+  50%{opacity:0.2;}
+}
+</style></head>
 <body>
-  <div class="wrapper">
-    <header id="fixed-header">
-      <nav class="nav-box">
-        <img src="logo.png" alt="Logo" class="logo" />
-
-        <div class="nav-links" id="primaryNavLinks">
-          <a href="#" class="nav-page-link nav-home-link" data-page-target="homePage" onclick="showPage('homePage')">BERANDA</a>
-          <a href="#" class="nav-page-link nav-cakraland-link" data-page-target="cakralandPage" onclick="showPage('cakralandPage')">CAKRALAND</a>
-          <a href="#" class="nav-page-link nav-cakraswara-link" data-page-target="cakraswaraPage" onclick="showPage('cakraswaraPage')">CAKRASWARA</a>
-        </div>
-
-        <button class="nav-burger" id="navBurger" type="button" aria-label="Buka menu navigasi" aria-expanded="false" onclick="toggleMobileNav()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
-      <div class="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
-    </header>
-
-    <div id="homePage">
-      <div class="fixed-gradient-layer"></div>
-
-      <section class="hero">
-        <h1>CAKRANUSA</h1>
-        <p>Merangkai Cerita Nusantara dalam Satu Cakrawala.</p>
-      </section>
-
-      <section class="gold-section">
-        <div class="particles">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <div class="gold-content">
-          <div class="gold-image">
-            <img src="slide1.png" alt="Slide Image" />
-          </div>
-
-          <div class="gold-text">
-            <h2>CAKRAWALA NUSANTARA</h2>
-            <p>
+<div class="wrapper">
+<header id="fixed-header">
+<nav class="nav-box">
+<img alt="Logo" class="logo" src="logo.png"/>
+<div class="nav-links" id="primaryNavLinks">
+<a class="nav-page-link nav-home-link" data-page-target="homePage" href="#" onclick="showPage('homePage')">BERANDA</a>
+<a class="nav-page-link nav-cakraland-link" data-page-target="cakralandPage" href="#" onclick="showPage('cakralandPage')">CAKRALAND</a>
+<a class="nav-page-link nav-cakraswara-link" data-page-target="cakraswaraPage" href="#" onclick="showPage('cakraswaraPage')">CAKRASWARA</a>
+</div>
+<button aria-expanded="false" aria-label="Buka menu navigasi" class="nav-burger" id="navBurger" onclick="toggleMobileNav()" type="button">
+<span></span>
+<span></span>
+<span></span>
+</button>
+</nav>
+<div class="mobile-nav-backdrop" onclick="closeMobileNav()"></div>
+</header>
+<div id="homePage">
+<div class="fixed-gradient-layer"></div>
+<section class="hero">
+<h1>CAKRANUSA</h1>
+<p>Merangkai Cerita Nusantara dalam Satu Cakrawala.</p>
+</section>
+<section class="gold-section">
+<div class="particles">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+<div class="gold-content">
+<div class="gold-image">
+<img alt="Slide Image" src="slide1.png"/>
+</div>
+<div class="gold-text">
+<h2>CAKRAWALA NUSANTARA</h2>
+<p>
               Dengan 38 provinsi dan lebih dari 1.340 suku bangsa, Indonesia menghadirkan keberagaman budaya yang kaya akan cerita, tradisi, bahasa, seni, dan warisan Nusantara yang terhubung dalam satu cakrawala budaya.
             </p>
-
-            <div class="stats-boxes">
-              <div class="stat-card">
-                <div class="stat-number" data-target="38">0</div>
-                <div class="stat-label">JUMLAH PROVINSI</div>
-              </div>
-
-              <div class="stat-card">
-                <div class="stat-number" data-target="1340">0</div>
-                <div class="stat-label">JUMLAH SUKU</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="wave-container">
-          <div class="wave wave-3"></div>
-          <div class="wave wave-4"></div>
-          <div class="wave wave-5"></div>
-        </div>
-      </section>
-
-      <section class="white-section">
-        <div class="white-content">
-          <div class="section-heading">
-            <h2>JENDELA BUDAYA</h2>
-            <p class="culture-tagline">
+<div class="stats-boxes">
+<div class="stat-card">
+<div class="stat-number" data-target="38">0</div>
+<div class="stat-label">JUMLAH PROVINSI</div>
+</div>
+<div class="stat-card">
+<div class="stat-number" data-target="1340">0</div>
+<div class="stat-label">JUMLAH SUKU</div>
+</div>
+</div>
+</div>
+</div>
+<div class="wave-container">
+<div class="wave wave-3"></div>
+<div class="wave wave-4"></div>
+<div class="wave wave-5"></div>
+</div>
+</section>
+<section class="white-section">
+<div class="white-content">
+<div class="section-heading">
+<h2>JENDELA BUDAYA</h2>
+<p class="culture-tagline">
               Sekilas pandang budaya Nusantara melalui warisan ikonik pada setiap wilayah Indonesia.
             </p>
-          </div>
-
-          <div class="culture-grid">
-            <a href="#" class="culture-card" data-home-culture="sumatra" onclick="openHomeCultureShortcut(event, 'sumatra')">
-              <img src="RUMAH-GADANG.png" alt="Sumatra" />
-              <div class="culture-name">Pulau Sumatra</div>
-            </a>
-
-            <a href="#" class="culture-card" data-home-culture="jawa" onclick="openHomeCultureShortcut(event, 'jawa')">
-              <img src="WAYANG-KULIT.png" alt="Jawa" />
-              <div class="culture-name">Pulau Jawa</div>
-            </a>
-
-            <a href="#" class="culture-card" data-home-culture="kalimantan" onclick="openHomeCultureShortcut(event, 'kalimantan')">
-              <img src="RUMAH-BETANG.png" alt="Kalimantan" />
-              <div class="culture-name">Pulau Kalimantan</div>
-            </a>
-
-            <a href="#" class="culture-card" data-home-culture="sulawesi" onclick="openHomeCultureShortcut(event, 'sulawesi')">
-              <img src="RUMAH-TONGKONAN.png" alt="Sulawesi" />
-              <div class="culture-name">Pulau Sulawesi</div>
-            </a>
-
-            <a href="#" class="culture-card" data-home-culture="bali" onclick="openHomeCultureShortcut(event, 'bali')">
-              <img src="TARI-KECAK.png" alt="Bali" />
-              <div class="culture-name">Pulau Bali & Nusa Tenggara</div>
-            </a>
-
-            <a href="#" class="culture-card" data-home-culture="papua" onclick="openHomeCultureShortcut(event, 'papua')">
-              <img src="HONAI.png" alt="Papua" />
-              <div class="culture-name">Pulau Papua</div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section id="sumatra"></section>
-      <section id="jawa"></section>
-      <section id="kalimantan"></section>
-      <section id="sulawesi"></section>
-      <section id="bali"></section>
-      <section id="papua"></section>
-
-      <section class="folklore-section">
-        <div class="folklore-container">
-          <div class="folklore-left">
-            <h2>Cerita Rakyat<br />Nusantara</h2>
-            <p>Menjelajahi Nusantara melalui legenda dan cerita yang diwariskan sebagai budaya.</p>
-
-            <div class="story-scrollbar">
-              <div class="story-scroll-track">
-                <div class="story-scroll-thumb" id="storyThumb"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="folklore-right">
-            <div class="folklore-slider" id="folkloreSlider">
-              <a href="#" class="story-card" data-home-story="Malin Kundang" onclick="openHomeStoryShortcut(event, 'Malin Kundang')">
-                <img src="MALIN-KUNDANG.png" alt="Malin Kundang" />
-                <div class="story-content">
-                  <h3>Malin Kundang - Sumatra</h3>
-                  <p>Kisah seorang anak yang durhaka kepada ibunya dan dikutuk menjadi batu sebagai pelajaran tentang bakti kepada orang tua.</p>
-                </div>
-              </a>
-
-              <a href="#" class="story-card" data-home-story="Sangkuriang" onclick="openHomeStoryShortcut(event, 'Sangkuriang')">
-                <img src="SANGKURIANG.png" alt="Sangkuriang" />
-                <div class="story-content">
-                  <h3>Sangkuriang - Jawa</h3>
-                  <p>Legenda asal-usul terbentuknya Gunung Tangkuban Perahu yang berawal dari kisah cinta tragis antara Sangkuriang dan Dayang Sumbi.</p>
-                </div>
-              </a>
-
-              <a href="#" class="story-card" data-home-story="Putri Junjung Buih" onclick="openHomeStoryShortcut(event, 'Putri Junjung Buih')">
-                <img src="PUTRI-JUNJUNG-BUIH.png" alt="Putri Junjung Buih" />
-                <div class="story-content">
-                  <h3>Putri Junjung Buih - Kalimantan</h3>
-                  <p>Cerita tentang seorang putri yang muncul dari buih sungai dan kelak menjadi tokoh penting dalam sejarah Kerajaan Banjar.</p>
-                </div>
-              </a>
-
-              <a href="#" class="story-card" data-home-story="Sawerigading" onclick="openHomeStoryShortcut(event, 'Sawerigading')">
-                <img src="SAWERIGADING.png" alt="Sawerigading" />
-                <div class="story-content">
-                  <h3>Sawerigading - Sulawesi</h3>
-                  <p>Epos kepahlawanan dari tanah Bugis yang mengisahkan perjalanan, keberanian, dan petualangan seorang pangeran legendaris.</p>
-                </div>
-              </a>
-
-              <a href="#" class="story-card" data-home-story="Manik Angkeran" onclick="openHomeStoryShortcut(event, 'Manik Angkeran')">
-                <img src="MANIK-ANGKERAN.png" alt="Manik Angkeran" />
-                <div class="story-content">
-                  <h3>Manik Angkeran - Bali & Nusa Tenggara</h3>
-                  <p>Kisah seorang pemuda yang serakah dan pelajaran tentang pentingnya kejujuran serta penghormatan terhadap alam.</p>
-                </div>
-              </a>
-
-              <a href="#" class="story-card" data-home-story="Manarmakeri" onclick="openHomeStoryShortcut(event, 'Manarmakeri')">
-                <img src="MANARMAKERI.png" alt="Manarmakeri" />
-                <div class="story-content">
-                  <h3>Manarmakeri - Papua</h3>
-                  <p>Legenda tokoh bijaksana dari Papua yang dipercaya membawa harapan, kemakmuran, dan pembaruan kehidupan.</p>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-section">
-        <h2 class="about-title">TENTANG KAMI</h2>
-
-        <div class="about-grid">
-          <div class="about-brand">
-            <img src="logo.png" alt="CAKRANUSA" />
-            <h3>CAKRANUSA</h3>
-          </div>
-
-          <div class="about-content">
-            <div class="about-description">
-              <h4>Deskripsi</h4>
-              <p>
+</div>
+<div class="culture-grid">
+<a class="culture-card" data-home-culture="sumatra" href="#" onclick="openHomeCultureShortcut(event, 'sumatra')">
+<img alt="Sumatra" src="RUMAH-GADANG.png"/>
+<div class="culture-name">Pulau Sumatra</div>
+</a>
+<a class="culture-card" data-home-culture="jawa" href="#" onclick="openHomeCultureShortcut(event, 'jawa')">
+<img alt="Jawa" src="WAYANG-KULIT.png"/>
+<div class="culture-name">Pulau Jawa</div>
+</a>
+<a class="culture-card" data-home-culture="kalimantan" href="#" onclick="openHomeCultureShortcut(event, 'kalimantan')">
+<img alt="Kalimantan" src="RUMAH-BETANG.png"/>
+<div class="culture-name">Pulau Kalimantan</div>
+</a>
+<a class="culture-card" data-home-culture="sulawesi" href="#" onclick="openHomeCultureShortcut(event, 'sulawesi')">
+<img alt="Sulawesi" src="RUMAH-TONGKONAN.png"/>
+<div class="culture-name">Pulau Sulawesi</div>
+</a>
+<a class="culture-card" data-home-culture="bali" href="#" onclick="openHomeCultureShortcut(event, 'bali')">
+<img alt="Bali" src="TARI-KECAK.png"/>
+<div class="culture-name">Pulau Bali &amp; Nusa Tenggara</div>
+</a>
+<a class="culture-card" data-home-culture="papua" href="#" onclick="openHomeCultureShortcut(event, 'papua')">
+<img alt="Papua" src="HONAI.png"/>
+<div class="culture-name">Pulau Papua</div>
+</a>
+</div>
+</div>
+</section>
+<section id="sumatra"></section>
+<section id="jawa"></section>
+<section id="kalimantan"></section>
+<section id="sulawesi"></section>
+<section id="bali"></section>
+<section id="papua"></section>
+<section class="folklore-section">
+<div class="folklore-container">
+<div class="folklore-left">
+<h2>Cerita Rakyat<br/>Nusantara</h2>
+<p>Menjelajahi Nusantara melalui legenda dan cerita yang diwariskan sebagai budaya.</p>
+<div class="story-scrollbar">
+<div class="story-scroll-track">
+<div class="story-scroll-thumb" id="storyThumb"></div>
+</div>
+</div>
+</div>
+<div class="folklore-right">
+<div class="folklore-slider" id="folkloreSlider">
+<a class="story-card" data-home-story="Malin Kundang" href="#" onclick="openHomeStoryShortcut(event, 'Malin Kundang')">
+<img alt="Malin Kundang" src="MALIN-KUNDANG.png"/>
+<div class="story-content">
+<h3>Malin Kundang - Sumatra</h3>
+<p>Kisah seorang anak yang durhaka kepada ibunya dan dikutuk menjadi batu sebagai pelajaran tentang bakti kepada orang tua.</p>
+</div>
+</a>
+<a class="story-card" data-home-story="Sangkuriang" href="#" onclick="openHomeStoryShortcut(event, 'Sangkuriang')">
+<img alt="Sangkuriang" src="SANGKURIANG.png"/>
+<div class="story-content">
+<h3>Sangkuriang - Jawa</h3>
+<p>Legenda asal-usul terbentuknya Gunung Tangkuban Perahu yang berawal dari kisah cinta tragis antara Sangkuriang dan Dayang Sumbi.</p>
+</div>
+</a>
+<a class="story-card" data-home-story="Putri Junjung Buih" href="#" onclick="openHomeStoryShortcut(event, 'Putri Junjung Buih')">
+<img alt="Putri Junjung Buih" src="PUTRI-JUNJUNG-BUIH.png"/>
+<div class="story-content">
+<h3>Putri Junjung Buih - Kalimantan</h3>
+<p>Cerita tentang seorang putri yang muncul dari buih sungai dan kelak menjadi tokoh penting dalam sejarah Kerajaan Banjar.</p>
+</div>
+</a>
+<a class="story-card" data-home-story="Sawerigading" href="#" onclick="openHomeStoryShortcut(event, 'Sawerigading')">
+<img alt="Sawerigading" src="SAWERIGADING.png"/>
+<div class="story-content">
+<h3>Sawerigading - Sulawesi</h3>
+<p>Epos kepahlawanan dari tanah Bugis yang mengisahkan perjalanan, keberanian, dan petualangan seorang pangeran legendaris.</p>
+</div>
+</a>
+<a class="story-card" data-home-story="Manik Angkeran" href="#" onclick="openHomeStoryShortcut(event, 'Manik Angkeran')">
+<img alt="Manik Angkeran" src="MANIK-ANGKERAN.png"/>
+<div class="story-content">
+<h3>Manik Angkeran - Bali &amp; Nusa Tenggara</h3>
+<p>Kisah seorang pemuda yang serakah dan pelajaran tentang pentingnya kejujuran serta penghormatan terhadap alam.</p>
+</div>
+</a>
+<a class="story-card" data-home-story="Manarmakeri" href="#" onclick="openHomeStoryShortcut(event, 'Manarmakeri')">
+<img alt="Manarmakeri" src="MANARMAKERI.png"/>
+<div class="story-content">
+<h3>Manarmakeri - Papua</h3>
+<p>Legenda tokoh bijaksana dari Papua yang dipercaya membawa harapan, kemakmuran, dan pembaruan kehidupan.</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="about-section">
+<h2 class="about-title">TENTANG KAMI</h2>
+<div class="about-grid">
+<div class="about-brand">
+<img alt="CAKRANUSA" src="logo.png"/>
+<h3>CAKRANUSA</h3>
+</div>
+<div class="about-content">
+<div class="about-description">
+<h4>Deskripsi</h4>
+<p>
                 CAKRANUSA merupakan WebGIS budaya interaktif yang menghadirkan keberagaman budaya Nusantara melalui peta digital, cerita rakyat, serta informasi budaya daerah dalam satu platform yang informatif, modern, dan mudah diakses. Melalui CAKRANUSA, pengguna dapat menjelajahi warisan budaya Indonesia secara lebih menarik dan interaktif.
               </p>
-            </div>
-
-            <div class="feedback-card">
-              <div class="feedback-section">
-                <h4>Kritik & Saran</h4>
-                <textarea id="feedbackMessage" placeholder="Tuliskan kritik, saran, atau masukan Anda..."></textarea>
-                <button onclick="sendWhatsappFeedback()">Kirim Pesan</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <div id="cakralandPage" style="display: none;">
-      <section class="cakraland-page">
-        <div id="cakralandMap"></div>
-      </section>
-
-      <div id="sheetOverlay"></div>
-
-      <div id="cultureSheet">
-        <div class="sheet-handle"></div>
-
-        <div class="sheet-header">
-          <div class="sheet-title" id="sheetProvince">PROVINSI</div>
-
-          <div class="sheet-tabs">
-            <button class="sheet-tab active">CERITA RAKYAT</button>
-            <button class="sheet-tab">ALAT MUSIK</button>
-            <button class="sheet-tab">BAJU ADAT</button>
-            <button class="sheet-tab">MAKANAN TRADISIONAL</button>
-            <button class="sheet-tab">SENI PERTUNJUKAN</button>
-            <button class="sheet-tab">RUMAH ADAT</button>
-          </div>
-        </div>
-
-        <div class="sheet-body" id="sheetBody"></div>
-      </div>
-    </div>
-
-    <div id="cakraswaraPage" style="display: none;">
-      <section class="cakraswara-page">
-        <div class="cakraswara-shell">
-          <div class="swara-search-wrap">
-            <input
-              type="search"
-              id="swaraSearchInput"
-              class="swara-search"
-              placeholder="Cari cerita audio Nusantara..."
-              autocomplete="off"
-            />
-          </div>
-
-          <div class="swara-category-nav" id="swaraCategoryNav">
-            <button class="swara-category-btn active" data-category="SEMUA">SEMUA</button>
-            <button class="swara-category-btn" data-category="LEGENDA">LEGENDA</button>
-            <button class="swara-category-btn" data-category="KERAJAAN & TOKOH SEJARAH">KERAJAAN & TOKOH SEJARAH</button>
-            <button class="swara-category-btn" data-category="DONGENG & FANTASI">DONGENG & FANTASI</button>
-            <button class="swara-category-btn" data-category="EPOS & KEPAHLAWANAN">EPOS & KEPAHLAWANAN</button>
-            <button class="swara-category-btn" data-category="MORAL & KEHIDUPAN">MORAL & KEHIDUPAN</button>
-          </div>
-
-          <div class="swara-grid" id="swaraGrid"></div>
-        </div>
-      </section>
-
-      <section id="cakraswaraPlayerLayer" aria-hidden="true">
-        <div class="swara-player-topbar">
-          <button class="swara-mobile-playlist-btn" type="button" onclick="toggleSwaraMobilePlaylist()" aria-label="Buka playlist Cakraswara">☰ PLAYLIST</button>
-          <div class="swara-player-search-wrap">
-            <input
-              type="search"
-              id="swaraPlayerSearchInput"
-              class="swara-search swara-player-search"
-              placeholder="Cari cerita audio Nusantara..."
-              autocomplete="off"
-            />
-          </div>
-        </div>
-
-        <div class="swara-player-layout">
-          <aside class="swara-playlist-panel">
-            <div class="swara-playlist-heading">
-              <span>CAKRASWARA PLAYLIST</span>
-              <small>Pilih cerita audio Nusantara</small>
-              <button class="swara-mobile-playlist-close" type="button" onclick="closeSwaraMobilePlaylist()" aria-label="Tutup playlist">×</button>
-            </div>
-            <div class="swara-playlist" id="swaraPlaylist"></div>
-          </aside>
-
-          <div class="swara-divider"></div>
-
-          <div class="swara-room">
-            <div class="swara-room-card">
-              <button class="swara-close-btn swara-card-close-btn" type="button" onclick="closeCakraswaraPlayer()" aria-label="Tutup player">×</button>
-              <div class="swara-room-image-wrap">
-                <img id="swaraPlayerImage" src="" alt="Audio Cerita" />
-              </div>
-
-              <h2 id="swaraPlayerTitle"></h2>
-              <div id="swaraPlayerCategory"></div>
-              <div id="swaraAudioStatus">Pilih audio untuk mulai mendengarkan.</div>
-
-              <div class="swara-controls">
-                <button class="swara-control-btn" type="button" id="swaraPrevBtn" aria-label="Playlist sebelumnya">⏮</button>
-                <button class="swara-control-btn" type="button" id="swaraBackBtn" aria-label="Mundur 10 detik">↺ 10</button>
-                <button class="swara-control-btn main" type="button" id="swaraPlayBtn" aria-label="Putar atau jeda">▶</button>
-                <button class="swara-control-btn" type="button" id="swaraForwardBtn" aria-label="Maju 10 detik">10 ↻</button>
-                <button class="swara-control-btn" type="button" id="swaraNextBtn" aria-label="Playlist berikutnya">⏭</button>
-              </div>
-
-              <div class="swara-progress-row">
-                <span id="swaraCurrentTime">00:00</span>
-                <input type="range" id="swaraSeekBar" min="0" max="100" value="0" />
-                <span id="swaraDuration">00:00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="youtube-audio-holder">
-          <div id="youtubeAudioPlayer"></div>
-        </div>
-        <div class="swara-mobile-playlist-overlay" onclick="closeSwaraMobilePlaylist()" aria-hidden="true"></div>
-      </section>
-    </div>
-
-    <div id="budayaPage" style="display: none;">
-      <section class="budaya-view">
-        <div class="gold-bubbles">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-        <h1 id="budayaJudul"></h1>
-        <div id="budayaVideo" class="budaya-media-slot"></div>
-        <div class="budaya-youtube-audio-holder" aria-hidden="true">
-          <div id="budayaAudioPlayer"></div>
-        </div>
-
-        <div class="budaya-binder-reader">
-          <div id="budayaLangNav" class="budaya-lang-nav" style="display: none;">
-            <button type="button" class="budaya-lang-btn active" id="budayaLangIdBtn" aria-label="Bahasa Indonesia" onclick="switchBudayaLanguage('id')"><span>I</span><span>N</span><span>D</span></button>
-            <button type="button" class="budaya-lang-btn" id="budayaLangEnBtn" aria-label="Bahasa Inggris" onclick="switchBudayaLanguage('en')"><span>E</span><span>N</span><span>G</span></button>
-          </div>
-
-          <div id="budayaIsi" class="budaya-doc-content"></div>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-  <script>
+</div>
+<div class="feedback-card">
+<div class="feedback-section">
+<h4>Kritik &amp; Saran</h4>
+<textarea id="feedbackMessage" placeholder="Tuliskan kritik, saran, atau masukan Anda..."></textarea>
+<button onclick="sendWhatsappFeedback()">Kirim Pesan</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div id="cakralandPage" style="display: none;">
+<section class="cakraland-page">
+<div id="cakralandMap"></div>
+</section>
+<div id="sheetOverlay"></div>
+<div id="cultureSheet">
+<div class="sheet-handle"></div>
+<div class="sheet-header">
+<div class="sheet-title" id="sheetProvince">PROVINSI</div>
+<div class="sheet-tabs">
+<button class="sheet-tab active">CERITA RAKYAT</button>
+<button class="sheet-tab">ALAT MUSIK</button>
+<button class="sheet-tab">BAJU ADAT</button>
+<button class="sheet-tab">MAKANAN TRADISIONAL</button>
+<button class="sheet-tab">SENI PERTUNJUKAN</button>
+<button class="sheet-tab">RUMAH ADAT</button>
+</div>
+</div>
+<div class="sheet-body" id="sheetBody"></div>
+</div>
+</div>
+<div id="cakraswaraPage" style="display: none;">
+<section class="cakraswara-page">
+<div class="cakraswara-shell">
+<div class="swara-search-wrap">
+<input autocomplete="off" class="swara-search" id="swaraSearchInput" placeholder="Cari cerita audio Nusantara..." type="search"/>
+</div>
+<div class="swara-category-nav" id="swaraCategoryNav">
+<button class="swara-category-btn active" data-category="SEMUA">SEMUA</button>
+<button class="swara-category-btn" data-category="LEGENDA">LEGENDA</button>
+<button class="swara-category-btn" data-category="KERAJAAN &amp; TOKOH SEJARAH">KERAJAAN &amp; TOKOH SEJARAH</button>
+<button class="swara-category-btn" data-category="DONGENG &amp; FANTASI">DONGENG &amp; FANTASI</button>
+<button class="swara-category-btn" data-category="EPOS &amp; KEPAHLAWANAN">EPOS &amp; KEPAHLAWANAN</button>
+<button class="swara-category-btn" data-category="MORAL &amp; KEHIDUPAN">MORAL &amp; KEHIDUPAN</button>
+</div>
+<div class="swara-grid" id="swaraGrid"></div>
+</div>
+</section>
+<section aria-hidden="true" id="cakraswaraPlayerLayer">
+<div class="swara-player-topbar">
+<button aria-label="Buka playlist Cakraswara" class="swara-mobile-playlist-btn" onclick="toggleSwaraMobilePlaylist()" type="button">☰ PLAYLIST</button>
+<div class="swara-player-search-wrap">
+<input autocomplete="off" class="swara-search swara-player-search" id="swaraPlayerSearchInput" placeholder="Cari cerita audio Nusantara..." type="search"/>
+</div>
+</div>
+<div class="swara-player-layout">
+<aside class="swara-playlist-panel">
+<div class="swara-playlist-heading">
+<span>CAKRASWARA PLAYLIST</span>
+<small>Pilih cerita audio Nusantara</small>
+<button aria-label="Tutup playlist" class="swara-mobile-playlist-close" onclick="closeSwaraMobilePlaylist()" type="button">×</button>
+</div>
+<div class="swara-playlist" id="swaraPlaylist"></div>
+</aside>
+<div class="swara-divider"></div>
+<div class="swara-room">
+<div class="swara-room-card">
+<button aria-label="Tutup player" class="swara-close-btn swara-card-close-btn" onclick="closeCakraswaraPlayer()" type="button">×</button>
+<div class="swara-room-image-wrap">
+<img alt="Audio Cerita" id="swaraPlayerImage" src=""/>
+</div>
+<h2 id="swaraPlayerTitle"></h2>
+<div id="swaraPlayerCategory"></div>
+<div id="swaraAudioStatus">Pilih audio untuk mulai mendengarkan.</div>
+<div class="swara-controls">
+<button aria-label="Playlist sebelumnya" class="swara-control-btn" id="swaraPrevBtn" type="button">⏮</button>
+<button aria-label="Mundur 10 detik" class="swara-control-btn" id="swaraBackBtn" type="button">↺ 10</button>
+<button aria-label="Putar atau jeda" class="swara-control-btn main" id="swaraPlayBtn" type="button">▶</button>
+<button aria-label="Maju 10 detik" class="swara-control-btn" id="swaraForwardBtn" type="button">10 ↻</button>
+<button aria-label="Playlist berikutnya" class="swara-control-btn" id="swaraNextBtn" type="button">⏭</button>
+</div>
+<div class="swara-progress-row">
+<span id="swaraCurrentTime">00:00</span>
+<input id="swaraSeekBar" max="100" min="0" type="range" value="0"/>
+<span id="swaraDuration">00:00</span>
+</div>
+</div>
+</div>
+</div>
+<div class="youtube-audio-holder">
+<div id="youtubeAudioPlayer"></div>
+</div>
+<div aria-hidden="true" class="swara-mobile-playlist-overlay" onclick="closeSwaraMobilePlaylist()"></div>
+</section>
+</div>
+<div id="budayaPage" style="display: none;">
+<section class="budaya-view">
+<div class="gold-bubbles">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+<h1 id="budayaJudul"></h1>
+<div class="budaya-media-slot" id="budayaVideo"></div>
+<div aria-hidden="true" class="budaya-youtube-audio-holder">
+<div id="budayaAudioPlayer"></div>
+</div>
+<div class="budaya-binder-reader">
+<div class="budaya-lang-nav" id="budayaLangNav" style="display: none;">
+<button aria-label="Bahasa Indonesia" class="budaya-lang-btn active" id="budayaLangIdBtn" onclick="switchBudayaLanguage('id')" type="button"><span>I</span><span>N</span><span>D</span></button>
+<button aria-label="Bahasa Inggris" class="budaya-lang-btn" id="budayaLangEnBtn" onclick="switchBudayaLanguage('en')" type="button"><span>E</span><span>N</span><span>G</span></button>
+</div>
+<div class="budaya-doc-content" id="budayaIsi"></div>
+</div>
+</section>
+</div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
     const fixedHeader = document.getElementById('fixed-header');
     const SHEET_EXPANDED = 0;
     const SHEET_MIDDLE = 35;
@@ -12294,8 +12267,7 @@
       initCakraswara();
     });
   </script>
-
-  <script>
+<script>
     /* Revisi final: swipe cerita rakyat mobile lebih kuat */
     function initFolkloreMobileSwipeFix() {
       const slider = document.getElementById('folkloreSlider');
@@ -12389,6 +12361,39 @@
       initFolkloreMobileSwipeFix();
     });
   </script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-</body>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+// lock scroll in player mode
+function enablePlayerMode(){
+  document.body.classList.add('player-active');
+}
+function disablePlayerMode(){
+  document.body.classList.remove('player-active');
+}
+
+// custom back navigation (non-browser history chaining)
+const navStack = [];
+
+function pushPage(page){
+  navStack.push(page);
+}
+
+function customBack(){
+  if(navStack.length > 1){
+    navStack.pop();
+    const prev = navStack[navStack.length - 1];
+    window.location.hash = prev;
+  } else {
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+
+// override back buttons if exist
+document.querySelectorAll('.back-btn').forEach(btn=>{
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    customBack();
+  });
+});
+</script></body>
 </html>
