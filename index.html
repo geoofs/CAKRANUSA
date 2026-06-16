@@ -7130,6 +7130,59 @@ touch-action:none!important;
 .player-active *{
 overscroll-behavior:none!important;
 }
+</style><style>
+@media (max-width:768px){
+
+  /* HERO TITLE FIX */
+  .hero-title, .judul, h1{
+    font-size: clamp(22px, 6vw, 34px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: 1px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+  }
+
+  .tagline{
+    font-size: 12px !important;
+    line-height: 1.4 !important;
+    opacity: 0.9;
+  }
+
+  /* remove any excess hero spacing */
+  .hero, .hero-section{
+    padding-top: 10px !important;
+  }
+
+  /* 2 GDOC FIX TOP GAP */
+  .gdoc-content, .bottom-sheet-content, .sheet-body{
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+  }
+
+  /* 3 audio scroll hint */
+  .audio-scroll-hint{
+    font-size: 12px;
+    text-align: center;
+    margin-top: 6px;
+    opacity: .7;
+  }
+
+  /* 4 PLAYER MODE HARD LOCK */
+  body.player-active{
+    position: fixed !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    height: 100% !important;
+    overscroll-behavior: none !important;
+    touch-action: none !important;
+  }
+
+  .player-active *{
+    overscroll-behavior: none !important;
+  }
+
+}
 </style></head>
 <body>
 <div class="wrapper">
@@ -7397,7 +7450,7 @@ overscroll-behavior:none!important;
 </div>
 <div class="youtube-audio-holder">
 <div id="youtubeAudioPlayer"></div>
-<div class="audio-scroll-hint">._. geser untuk scroll kategori →</div></div>
+<div class="audio-scroll-hint">._. geser untuk scroll kategori →</div><div class="audio-scroll-hint">._. geser audio ke samping →</div></div>
 <div aria-hidden="true" class="swara-mobile-playlist-overlay" onclick="closeSwaraMobilePlaylist()"></div>
 </section>
 </div>
@@ -12522,5 +12575,36 @@ goBack();
 window.addEventListener('popstate',function(){
 goBack();
 });
+</script><script>
+let navStack = [];
+
+function goTo(page){
+  navStack.push(page);
+}
+
+function back(){
+  if(navStack.length > 1){
+    navStack.pop();
+    let last = navStack[navStack.length-1];
+    location.hash = last;
+  } else {
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+}
+
+/* PLAYER FIX */
+function openPlayer(){
+  document.body.classList.add('player-active');
+}
+function closePlayer(){
+  document.body.classList.remove('player-active');
+}
+
+/* prevent scroll leak */
+document.addEventListener('touchmove', function(e){
+  if(document.body.classList.contains('player-active')){
+    e.preventDefault();
+  }
+}, {passive:false});
 </script></body>
 </html>
