@@ -7012,43 +7012,123 @@
   </style>
 <style>
 @media (max-width: 768px){
-  .hero-title, .judul, .title, h1 {
-    font-size: 18px !important;
-    transform: scale(0.95);
-  }
-  .tagline {
-    font-size: 12px !important;
-  }
-  .animated-title {
-    font-size: 18px !important;
-  }
-}
 
-/* fix bottom sheet GDOC spacing */
-@media (max-width:768px){
-  .bottom-sheet .gdoc-content,
-  .sheet-content{
-    padding-top: 8px !important;
+  /* FIX HERO TYPOGRAPHY */
+  .hero-title, .judul, h1, .title{
+    font-size: clamp(16px, 4.5vw, 22px) !important;
+    line-height: 1.2 !important;
+    transform: none !important;
+  }
+
+  .tagline{
+    font-size: clamp(10px, 3.2vw, 13px) !important;
+    margin-top: 6px !important;
+  }
+
+  .animated-title{
+    font-size: clamp(16px, 4vw, 20px) !important;
+  }
+
+  /* FIX GAP BETWEEN COUNTDOWN & WAVE */
+  .countdown, .stats, .counter{
+    margin-bottom: 8px !important;
+  }
+  .wave, .ombak{
+    margin-top: 0px !important;
+  }
+
+  /* FIX BOTTOM SHEET GDOC SPACING */
+  .bottom-sheet, .sheet, .modal-sheet{
+    padding-top: 0px !important;
+  }
+
+  .bottom-sheet .content, .sheet-content, .gdoc-content{
+    padding-top: 6px !important;
     margin-top: 0 !important;
   }
+
+  /* AUDIO CATEGORY SCROLL FIX */
+  .audio-category{
+    overflow-x: auto !important;
+    display: flex !important;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 8px;
+  }
+
+  .audio-category::-webkit-scrollbar{
+    display:none;
+  }
+
+  .audio-scroll-hint{
+    text-align:center;
+    font-size:11px;
+    opacity:0.6;
+    margin-top:4px;
+    animation: blink 1.3s infinite;
+  }
+
+  @keyframes blink{
+    50%{opacity:0.2;}
+  }
+
+  /* FIX PLAYER MODE FULL LOCK */
+  body.player-active, html.player-active{
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+
+}
+</style><style>
+@media (max-width:768px){
+.hero-title,h1,.judul,.title{
+font-size:clamp(16px,5vw,22px)!important;
+line-height:1.2!important;
+transform:none!important;
+}
+.tagline{
+font-size:clamp(10px,3.5vw,14px)!important;
+margin-top:4px!important;
+}
+.animated-title{
+font-size:clamp(16px,5vw,20px)!important;
 }
 
-/* fix player mode scroll lock */
-body.player-active {
-  overflow: hidden !important;
-  touch-action: none !important;
+/* bottom sheet fix */
+.bottom-sheet,.sheet,.modal-sheet{
+padding-top:0!important;
+margin-top:0!important;
+}
+.sheet-content,.gdoc-content{
+padding-top:0!important;
+margin-top:0!important;
 }
 
-/* audio category scroll indicator */
-.audio-scroll-indicator{
-  display:flex;
-  justify-content:center;
-  font-size:14px;
-  opacity:0.7;
-  animation: blink 1.2s infinite;
+/* audio hint */
+.audio-scroll-hint{
+display:flex;
+justify-content:center;
+font-size:12px;
+opacity:.8;
+margin-top:6px;
+animation:blink 1.2s infinite;
 }
-@keyframes blink{
-  50%{opacity:0.2;}
+@keyframes blink{50%{opacity:.2;}}
+}
+
+html.player-active,body.player-active{
+overflow:hidden!important;
+position:fixed!important;
+width:100%!important;
+height:100%!important;
+touch-action:none!important;
+}
+.player-active *{
+overscroll-behavior:none!important;
 }
 </style></head>
 <body>
@@ -7317,7 +7397,7 @@ body.player-active {
 </div>
 <div class="youtube-audio-holder">
 <div id="youtubeAudioPlayer"></div>
-</div>
+<div class="audio-scroll-hint">._. geser untuk scroll kategori →</div></div>
 <div aria-hidden="true" class="swara-mobile-playlist-overlay" onclick="closeSwaraMobilePlaylist()"></div>
 </section>
 </div>
@@ -12363,37 +12443,84 @@ body.player-active {
   </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script>
-// lock scroll in player mode
-function enablePlayerMode(){
-  document.body.classList.add('player-active');
-}
-function disablePlayerMode(){
-  document.body.classList.remove('player-active');
-}
+let navStack = [];
 
-// custom back navigation (non-browser history chaining)
-const navStack = [];
-
-function pushPage(page){
-  navStack.push(page);
+function openPage(id){
+  if(!navStack.includes(id)){
+    navStack.push(id);
+  }
+  window.location.hash = id;
 }
 
 function customBack(){
   if(navStack.length > 1){
     navStack.pop();
-    const prev = navStack[navStack.length - 1];
+    const prev = navStack[navStack.length-1];
     window.location.hash = prev;
-  } else {
-    window.scrollTo({top:0, behavior:'smooth'});
+  }else{
+    window.scrollTo({top:0,behavior:'smooth'});
   }
 }
 
-// override back buttons if exist
-document.querySelectorAll('.back-btn').forEach(btn=>{
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    customBack();
+/* HARD PLAYER LOCK */
+function enablePlayerMode(){
+  document.documentElement.classList.add("player-active");
+  document.body.classList.add("player-active");
+}
+
+function disablePlayerMode(){
+  document.documentElement.classList.remove("player-active");
+  document.body.classList.remove("player-active");
+}
+
+/* FIX BACK BUTTONS */
+document.addEventListener("DOMContentLoaded",()=>{
+  document.querySelectorAll(".back-btn").forEach(b=>{
+    b.addEventListener("click",(e)=>{
+      e.preventDefault();
+      customBack();
+    });
   });
+});
+
+/* AUDIO HINT AUTO ADD */
+document.addEventListener("DOMContentLoaded",()=>{
+  const cat = document.querySelector(".audio-category");
+  if(cat && !document.querySelector(".audio-scroll-hint")){
+    const hint = document.createElement("div");
+    hint.className = "audio-scroll-hint";
+    hint.innerText = "._. geser ke samping →";
+    cat.parentNode.appendChild(hint);
+  }
+});
+</script><script>
+let navStack=[];
+
+function pushView(v){navStack.push(v);}
+
+function goBack(){
+if(navStack.length>1){
+navStack.pop();
+let last=navStack[navStack.length-1];
+if(last && document.querySelector(last)){
+document.querySelector(last).scrollIntoView({behavior:'smooth'});
+}else{
+window.scrollTo({top:0,behavior:'smooth'});
+}
+}else{
+window.scrollTo({top:0,behavior:'smooth'});
+}
+}
+
+document.addEventListener('click',function(e){
+if(e.target.classList.contains('back-btn')){
+e.preventDefault();
+goBack();
+}
+});
+
+window.addEventListener('popstate',function(){
+goBack();
 });
 </script></body>
 </html>
