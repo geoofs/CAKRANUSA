@@ -7183,6 +7183,51 @@ overscroll-behavior:none!important;
   }
 
 }
+</style><style>
+@media (max-width: 768px) {
+  #homePage .hero,
+  .hero {
+    min-height: calc(100svh - 54px) !important;
+    padding: 18px 14px 26px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    overflow: hidden !important;
+  }
+
+  #homePage .hero h1,
+  .hero h1,
+  .hero-title {
+    font-size: clamp(8px, 3vw, 12px);
+    line-height: 1 !important;
+    letter-spacing: 1.2px !important;
+    margin: 0 0 6px 0 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    transform: none !important;
+  }
+
+  #homePage .hero h1::before,
+  #homePage .hero h1::after,
+  .hero h1::before,
+  .hero h1::after {
+    font-size: 0.38rem !important;
+    top: -8px !important;
+    bottom: auto !important;
+    left: -10px !important;
+    right: -10px !important;
+    opacity: 0.55 !important;
+  }
+
+  #homePage .hero p,
+  .hero p,
+  .tagline {
+    font-size: clamp(9px, 2.45vw, 11px) !important;
+    line-height: 1.25 !important;
+    letter-spacing: 0.15px !important;
+    max-width: 85vw !important;
+    margin: 0 auto !important;
+  }
+}
 </style></head>
 <body>
 <div class="wrapper">
